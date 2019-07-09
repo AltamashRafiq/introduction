@@ -16,14 +16,14 @@ education:
     year: 2018
 email: "altamashrafiq@gmail.com"
 interests:
-- Artificial Intelligence
-- Computational Linguistics
-- Information Retrieval
+- Machine Learning & Data Mining
+- Statistical App Development
+- Interactive Data Visualization
 name: Altamash Rafiq
 organizations:
 - name: Centre for Economic Research in Pakistan
   url: ""
-role: Analytics Intern
+role: Data Analytics Intern
 social:
 - icon: envelope
   icon_pack: fas
@@ -43,6 +43,4 @@ user_groups:
 - Visitors
 ---
 
-Nelson Bighetti is a professor of artificial intelligence at the Stanford AI Lab. His research interests include distributed robotics, mobile computing and programmable matter. He leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate. 
+Altamash Rafiq is an incoming [Interdisciplinary Data Science](https://datascience.duke.edu/) Masters degree candidate at Duke University. Currently, Altamash works as an intern in the Data Analytics department of the [Centre for Economic Research in Pakistan](https://cerp.org.pk/) (CERP) where he specializes in statistical app and web development in the R programming language. At CERP, he has analyzed and developed interactive visualization tools for government and industry data on public health, education, finance, and more. In addition, Altamash regularly provides statistical consulting and academic course development services to the [Business Analytics](https://www.fuqua.duke.edu/programs/mqm-business-analytics) department of the Duke University Fuqua School of Business.
