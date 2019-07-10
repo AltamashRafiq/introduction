@@ -17,19 +17,31 @@ subtitle = ""
 [[feature]]
   icon = "r-project"
   icon_pack = "fab"
-  name = "R"
-  description = "90%"
+  name = "R-Studio"
   
 [[feature]]
-  icon = "chart-line"
-  icon_pack = "fas"
-  name = "Statistics"
-  description = "100%"  
+  icon = "python"
+  icon_pack = "fab"
+  name = "Python"
   
 [[feature]]
-  icon = "camera-retro"
+  icon = "project-diagram"
   icon_pack = "fas"
-  name = "Photography"
-  description = "10%"
+  name = "Machine Learning"
+  
+[[feature]]
+  icon = "chart-pie"
+  icon_pack = "fas"
+  name = "Data Visualization"
+  
+[[feature]]
+  icon = "tachometer-alt"
+  icon_pack = "fas"
+  name = "Shiny Apps"
+
+[[feature]]
+  icon = "server"
+  icon_pack = "fas"
+  name = "PostgreSQL"
 
 +++

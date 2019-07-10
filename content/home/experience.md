@@ -19,6 +19,22 @@ date_format = "Jan 2006"
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 
 [[experience]]
+  title = "Data Analytics Intern"
+  company = "Centre for Economic Research in Pakistan"
+  company_url = "www.cerp.org.pk"
+  location = "Lahore, Pakistan"
+  date_start = "2019-06-01"
+  date_end = ""
+  description = """
+  Responsibilities include:
+  
+  * Shiny App development
+  * Data Analysis
+  * Survey Design
+  * Web Development
+  """
+
+[[experience]]
   title = "Head Teaching Assistant"
   company = "Fuqua School of Business"
   company_url = "www.fuqua.duke.edu"
