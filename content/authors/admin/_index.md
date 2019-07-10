@@ -1,8 +1,7 @@
 ---
 authors:
 - admin
-bio: My research interests include distributed robotics, mobile computing and programmable
-  matter.
+bio: My passions include data analytics, interactive visualizations, and statistical programming.
 education:
   courses:
   - course: MS in Interdisciplinary Data Science
