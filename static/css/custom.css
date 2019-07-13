@@ -1,0 +1,3 @@
+.home-section:nth-of-type(even) {
+    background-image: url('../img/wallpaper.jpg');
+}
