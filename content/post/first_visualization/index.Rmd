@@ -1,0 +1,62 @@
+---
+title: First Data Visualization
+author: Altamash Rafiq
+date: '2019-07-10'
+slug: first-data-visualization
+categories:
+  - R
+  - Highcharts
+  - Visualization
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2019-07-10T22:17:24+05:00'
+featured: no
+image:
+  caption: ''
+  focal_point: 'Center'
+  preview_only: yes
+projects: []
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+This post is meant to be a first attempt at understanding the data visualization capabilities offered by this static webpage. The highcharter library is a great place to start as I assess these capabilities. 
+
+```{r, echo=FALSE, message=FALSE, error=FALSE, warning=FALSE}
+library(highcharter)
+library(tidyverse)
+
+df_income = read_csv("income.csv") %>%
+  filter(is.na(income_2014) != TRUE) %>%
+  filter(income_2014 > 0)
+
+widgetframe::frameWidget(hcboxplot(x = df_income[["income_2014"]], var = df_income[["province"]]) %>% 
+    hc_chart(type = "column") %>%
+    hc_title(text = "Income in 2014") %>%
+    hc_subtitle(text = "Pakistan Social and Living Standards Measurement Survey 2014-15") %>%
+    hc_chart(type = "column", events = list(
+      load = JS("function() {
+        var chart = this;
+        chart.series[0].points[0].update({color: '#31688EFF'})
+        chart.series[0].points[1].update({color: '#DC143C'})
+        chart.series[0].points[2].update({color: '#35B779FF'})
+        chart.series[0].points[3].update({color: '#FF8F00'})}")
+      )) %>%
+  hc_yAxis(max = 600000, min = -30000, title = list(text = "Income in Pakistani Rupees")) %>%
+  hc_xAxis(title = list(text = "Province of Pakistan")))
+```
+
+
+
+
+
+
+
+
+
+
+
