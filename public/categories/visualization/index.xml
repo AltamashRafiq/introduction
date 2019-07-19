@@ -14,10 +14,10 @@
     
     <item>
       <title>First Data Visualization</title>
-      <link>/post/first-data-visualization/</link>
+      <link>/post/first_visualization/first-data-visualization/</link>
       <pubDate>Wed, 10 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/first-data-visualization/</guid>
+      <guid>/post/first_visualization/first-data-visualization/</guid>
       <description>
 &lt;script src=&#34;/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
 &lt;script src=&#34;/rmarkdown-libs/pymjs/pym.v1.js&#34;&gt;&lt;/script&gt;

@@ -1,11 +1,12 @@
 ---
 date: "2016-04-27T00:00:00Z"
-external_link: http://example.org
+external_link: http://altamashrafiq.github.io/pakistanliteracy
 image:
-  caption: Photo by Toa Heftiba on Unsplash
+  caption: Literacy in Pakistan
   focal_point: Smart
-summary: An example of linking directly to an external project website using `external_link`.
+summary: Visualizing literacy survey responses to the Pakistan Social and Living Standards Measurement Survey 2014-15.
 tags:
-- Demo
-title: External Project
+- Visualization
+- Highcharts
+title: Literacy in Pakistan
 ---
