@@ -1,0 +1,293 @@
+---
+title: 'Data Blog 1: Mass Shootings'
+author: Altamash Rafiq
+date: '2019-08-08'
+slug: data-blog-1
+categories:
+  - Data Blog
+tags:
+  - Visualizations
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2019-08-08T21:34:36-04:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.align = "center")
+```
+
+<center><h1 style ="font-size:15px;"><font color = "maroon"> _Hover over or click a point to learn more about the incident_ </h1></font></center>
+
+```{r, message = FALSE, echo = FALSE, warning = FALSE, fig.align='center'}
+library(tidyverse)
+library(highcharter)
+library(htmlTable)
+library(knitr)
+library(Hmisc)
+library(dygraphs)
+
+shootings = read_csv("shootings.csv") %>%
+  select(location, date, fatalities, total_victims, injured, latitude, longitude, year, case, weapon_type, sources)
+
+shootings[["case"]] = sapply(shootings[["case"]], function(x) {
+  paste(sapply(strsplit(x, ' '), capitalize), collapse=' ')
+})
+
+shootings[["weapon_type"]] = sapply(shootings[["weapon_type"]], function(x) {
+  paste(sapply(strsplit(x, ' '), capitalize), collapse=' ')
+}) %>% 
+  str_trim() %>%
+  str_replace_all(";", "<br>") %>%
+  str_replace_all(",", "<br>")
+
+shootings = shootings %>%
+  mutate(case = paste0("<center><strong>", case, "</strong><center>"))
+
+shootings[["url"]] = shootings %>%
+  mutate(sources = str_split(sources, ";")) %>%
+  pull(sources) %>%
+  lapply(`[[`, 1) %>%
+  unlist()
+
+states = shootings[["location"]] %>%
+  str_split_fixed(",", 2) %>% 
+  as_tibble()
+
+names(states) = c("name", "us_state")
+
+shootings = shootings %>% select(-location) %>%
+  cbind(states)
+
+shootings = shootings %>%
+  rename(lat = latitude, lon = longitude, z = fatalities)
+
+shoot = shootings %>%
+  filter(year >= 2010)
+
+shoot[["us_state"]] = shoot[["us_state"]] %>% str_trim()
+shoot[["us_state"]][48] = "DC"
+shoot[["us_state"]][32] = "Louisiana"
+
+for (i in 1:length(shoot[["us_state"]])){
+  if (str_length(shoot[["us_state"]][i]) > 2){
+    shoot[["us_state"]][i] = state.abb[which(state.name == shoot[["us_state"]][i])]
+  }
+}
+
+table = matrix(c("<h2>{point.z}</h2>", 
+                 "<h2>{point.injured}</h2>", 
+                 "{point.weapon_type}"),
+       nrow = 1,
+       ncol = 3,
+       dimnames = list(c(""),
+                       c("&nbsp;Deaths&nbsp;", 
+                         "&nbsp;Injured&nbsp;", 
+                         "&nbsp;Weapon Type&nbsp;"))) %>%
+  htmlTable(cgroup = c("<h2>{point.name},
+                       {point.us_state}</h2>\n
+                       <center>{point.date}</center>"),
+            caption = "{point.case}",
+            pos.caption = "top")
+
+hcmap(map = "countries/us/us-all", 
+      download_map_data = FALSE,
+      name = "United States",
+      showInLegend = FALSE) %>%
+  hc_add_series(data = shoot, 
+                type = "mapbubble", 
+                name = "Major Mass Shootings since 2010", 
+                maxSize = '10%', 
+                color = "maroon", 
+                animation = list(
+                  duration = 2000
+                )) %>%
+  hc_credits(
+    enabled = FALSE
+  ) %>%
+  hc_plotOptions(
+    series = list(
+      events = list(
+        click = JS("function(self) {
+                        window.open(self.point.url);
+                      }"
+        )
+      ),
+      marker = list(
+        states = list(
+          hover = list(
+            enabled = TRUE,
+            radiusPlus = 4
+          )
+        )
+      )
+    )
+  ) %>%
+  hc_tooltip(
+    pointFormat = table,
+    useHTML = TRUE
+  ) %>%
+  hc_title(text = "Major US Mass Shootings since 2010") %>%
+  hc_subtitle(text = "Data Source: www.motherjones.com") %>%
+  hc_mapNavigation(enabled = TRUE) %>%
+  widgetframe::frameWidget()
+```
+<br/><br/>
+If you, dear reader, had met me five years ago when I stepped foot in the United States for the first time, you would have met a man convinced that the US represented a land of peace, unity and racial indifference. As a child, I had learnt English by watching American cartoons that showed children of many different races living together and going on fantastic adventures that I couldn't take my eyes off of. As I grew older, I began thinking of the US as an almost a magical place that epitomized racial harmony, a belief that eventually transformed into a desire to see this harmony for myself. This, among many other factors, led me to apply to colleges in the US and make the decision to pursue my undergraduate studies at Duke. 
+
+All of this changed on the 12th of August 2014 when, as I unpacked my bags in New York, I watched footage of police clashing with rioters in Ferguson, Missouri, in the aftermath of the shooting of Michael Brown. I had come face to face with the reality of racial tensions in the United States of America. Upon commencing my undergraduate studies later that month, I began to educate myself about the history of racial tensions in the US and to understand the pervasive problem of gun violence that has singed the face of this country for many many years.
+
+Five years later, I arrived at Duke on the 1st of August 2019 for a Master's degree, this time knowing full well about the prevalence of mass shootings in this country. This knowledge, however, did little to prepare me for the news just three days after my arrival of mass shootings in both El Paso, Texas, and Dayton, Ohio. As I have reflected over these shooting over the past two weeks, I have been motivated to explore the recent history of mass shootings in the US as the topic of my first Data Blog. I hope that in the process of making the interactive data visualizations I share on this page, I may learn more about the history of guns in the US and the increasingly prevalent phenomenon of gun violence.
+
+In the past two week, I have learnt that a mass shooting is a rather tricky term to define. Different groups have different understandings of what to characterize as a mass shooting and numbers differ between sources; some groups would argue that there have been 254 mass shootings in the US since the start of 2019 while others would enforce a more stringent criteria and suggest that there have been only 7 shootings major enough to be characterized as 'mass' shootings. It is this latter, more stringent criteria that I have used for the majority of the interactive plots on this page.
+
+The map at the top of this post attempts to summarize much that I have found about the major mass shootings in the US since 2010. Each point on the map represents a major mass shooting and the size of each point indicates the number of people killed in that shooting. If you hover over the point, subsequent details like the number of people killed and injured as well as the type of weapons used in the shooting should appear along with some basic information about the shooting. If you click a point, you will be redirected to a different webpage with detailed information about that shooting.
+
+Next I have decided to plot the number of people killed and injured (combined) in major shootings in the US. Over the past few years, mass shootings have been more and more in the news and I suspect this is because of the number of people who have been impacted by (i.e. been victim of) major mass shooting. Certainly, the following plot affirms that people injured or killed in major mass shootings has sky rocketed in recent years, propelling the topic of mass shootings to the forefront of American consciousness.
+
+__Note:__ It is still just August in 2019 so the data for 2019 is not complete.
+
+<center><h1 style ="font-size:15px;"><font color = "maroon"> _Hover over the plot to learn more_ </h1></font></center>
+
+```{r, message = FALSE, echo = FALSE, warning = FALSE, fig.align='center'}
+data_min = shootings %>%
+  select(date, year, total_victims) %>%
+  group_by(year) %>%
+  mutate(shootings = length(total_victims)) %>%
+  select(-total_victims, -date) %>% unique()
+
+color_theme <- "#E76235"
+data_min = shootings %>%
+  select(date, year, total_victims) %>%
+  group_by(year) %>%
+  mutate(victims = sum(total_victims)) %>%
+  select(-total_victims) %>% unique()
+
+data_min[["date"]] = data_min[["date"]] %>% lubridate::parse_date_time(orders = "mdy")
+
+hchart(data_min, 
+       "areaspline", 
+       hcaes(year, victims), 
+       name = "Victims") %>% 
+  hc_title(
+    text = "Victims of Major Mass Shootings since 1982"
+  ) %>%
+  hc_subtitle(
+    text = "United States of America"
+  ) %>%
+  hc_xAxis(
+    title = list(text = NULL),
+    opposite = TRUE,
+    gridLineWidth = 1,
+    gridLineColor = color_theme, # vertical lines
+    tickColor = color_theme,
+    lineColor = "transparent",  # horizontal line,
+    labels = list(style = list(color = color_theme, fontSize = "16px")),
+    tickInterval = 10
+    ) %>%
+  hc_yAxis(
+    title = list(text = ""),
+    opposite = FALSE,
+    gridLineColor = "transparent",
+    showFirstLabel = FALSE,
+    labels = list(
+      style = list(color = color_theme, fontSize = "16px"),
+      align = "left",
+      x = 0
+    )
+  ) %>%
+  hc_plotOptions(
+    series = list(
+      color = color_theme,
+      fillColor = hex_to_rgba(color_theme, 0.20),
+      marker = list(enabled = FALSE)
+    )
+  ) %>%
+  hc_credits(enabled = TRUE, text = "Data Source: www.motherjones.com") %>%
+  widgetframe::frameWidget()
+```
+<br/><br/>
+Next, I was interested in the gun debate side of mass shootings. There is now a large number of people in the US who support the ban or limitation of semiautomatic weapons. They believe that this limitation will, if not lower the number of mass shootings, at least limit the victim toll of these shootings. To visualize the difference between the number of victims of shootings involving semi-automatic weapons and other guns, I produced the following box plot. __Note:__ The box plot ignores some major outliers in the semi-automatic weapons category that would have made the difference between the two types even more stark.
+
+<center><h1 style ="font-size:15px;"><font color = "maroon"> _Hover over the plot to learn more_ </h1></font></center>
+
+```{r, message = FALSE, echo = FALSE, warning = FALSE, fig.align='center'}
+vec = shoot %>%
+  pull(weapon_type) %>%
+  str_split("<br>") %>%
+  tibble()
+names(vec) = c("weapons")
+vec[["auto"]] = "Other Weapons"
+
+for (i in 1:nrow(vec)){
+  if (grepl("Semiautomatic", vec[["weapons"]][[i]])[1]){
+    vec[["auto"]][i] = "Semi-Automatic Weapons"
+  }
+}
+
+combined = cbind(shoot, vec)
+
+hcboxplot(x = combined[["total_victims"]], var = combined[["auto"]], outliers = FALSE) %>% 
+  hc_chart(type = "column", events = list(
+      load = JS("function() {
+        var chart = this;
+        chart.series[0].points[0].update({color: '#31688EFF'})
+        chart.series[0].points[1].update({color: '#DC143C'})}")
+      )) %>%
+  hc_yAxis(title = list(text = "Total Victims"), max = 55, min = 0) %>%
+  hc_title(text = "Victims per Weapon Type") %>%
+  hc_subtitle(
+    text = "Major US Mass Shooting since 2010"
+  ) %>%
+  hc_add_annotation(
+    text = list("blabla")
+  ) %>%
+  hc_credits(enabled = TRUE, text = "Data Source: www.motherjones.com") %>%
+  widgetframe::frameWidget()
+```
+<br/><br/>
+As is clear from this plot, there appears to be a significant difference between the number of victims of each type of mass shooting. It is important here, however, to mention some __limitations of the data plotted above__: often the date was unclear about whether or not the weapon listed was either semi of fully automatic, despite significant data cleaning on my part. In cases of doubt, the shooting has been characterized as involving 'Other Weapons'. More accurate data as well as domain knowledge about weapon types is needed for a more comprehensive conclusion about whether or not semi-automatic weapons lead to more victims and therefore should indeed be restricted.
+
+Finally, I wanted to take a moment to explore data for all the mass shootings in 2019, not just the major shootings. In pursuit of this goal, I made the following plot to visualize the frequency and human toll of the shootings this year. __Note:__ In an effort to make a smoother and more informative plot, instead of making each point represent the number of shootings and victims on each day, I instead made it represent a 5 day moving average of victims and shootings. 
+
+<center><h1 style ="font-size:15px;"><font color = "maroon"> _Hover over the plot to learn more_ </h1></font></center>
+
+```{r, message = FALSE, echo = FALSE, warning = FALSE, fig.align='center'}
+data = read_csv("data.csv") %>% rename("City" = "City Or County")
+
+df = data %>%
+  select("Incident Date", "# Killed", "# Injured") %>%
+  rename(date = "Incident Date", 
+         killed = "# Killed",
+         injured = "# Injured") %>%
+  group_by(date) %>%
+  dplyr::summarize(count = length(killed),
+                   killed = sum(killed),
+                   injured = sum(injured)) %>%
+  mutate(victims = killed + injured)
+
+df[["date"]] = df[["date"]] %>% as.Date("%B %d, %Y")
+
+df = df %>% remove_rownames %>% 
+  column_to_rownames(var="date") %>%
+  select(victims, count)
+
+df = data.matrix(df)
+
+dygraph(df, main = "All US Mass Shooting in 2019") %>%
+  dySeries("victims", label = "Victims") %>%
+  dySeries("count", label = "Mass Shootings") %>%
+  dyOptions(stackedGraph = TRUE) %>%
+  dyRangeSelector(height = 20) %>%
+  dyRoller(rollPeriod = 5) %>%
+  dyLegend(width = 320) %>%
+  widgetframe::frameWidget()
+```
+<br/><br/>
+It seems that as the year has progressed, the number of mass shootings has begun to fluctuate more and more while the number of victims per shooting appears to be on the rise. This plot suggests a trend of increasing destructiveness in the mass shooting activity for this year, leaving me with a sense of anxiety about what is to follow in the rest of this year and beyond. It is genuinely frightening to see the frequency and terrible impact of mass shootings in America and I am now certainly more preoccupied with the gun debate than ever before.

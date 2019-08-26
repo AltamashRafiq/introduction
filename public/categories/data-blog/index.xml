@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Blog on Altamash Rafiq</title>
+    <link>/categories/data-blog/</link>
+    <description>Recent content in Data Blog on Altamash Rafiq</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2019 Altamash Rafiq</copyright>
+    <lastBuildDate>Thu, 08 Aug 2019 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="/categories/data-blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Data Blog 1: Mass Shootings</title>
+      <link>/post/data_blog_1/data-blog-1/</link>
+      <pubDate>Thu, 08 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data_blog_1/data-blog-1/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/pymjs/pym.v1.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/widgetframe-binding/widgetframe.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;center&gt;
+&lt;h1 style=&#34;font-size:15px;&#34;&gt;
+&lt;font color = &#34;maroon&#34;&gt; &lt;em&gt;Hover over or click a point to learn more about the incident&lt;/em&gt;
+&lt;/h1&gt;
+&lt;/font&gt;
+&lt;/center&gt;
+&lt;p&gt;&lt;div id=&#34;htmlwidget-1&#34; style=&#34;width:100%;height:480px;&#34; class=&#34;widgetframe html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-1&#34;&gt;{&#34;x&#34;:{&#34;url&#34;:&#34;/post/data_blog_1/data-blog-1_files/figure-html//widgets/widget_unnamed-chunk-1.html&#34;,&#34;options&#34;:{&#34;xdomain&#34;:&#34;*&#34;,&#34;allowfullscreen&#34;:false,&#34;lazyload&#34;:false}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;br/&gt;&lt;br/&gt;
+If you, dear reader, had met me five years ago when I stepped foot in the United States for the first time, you would have met a man convinced that the US represented a land of peace, unity and racial indifference. As a child, I had learnt English by watching American cartoons that showed children of many different races living together and going on fantastic adventures that I couldn’t take my eyes off of. As I grew older, I began thinking of the US as an almost a magical place that epitomized racial harmony, a belief that eventually transformed into a desire to see this harmony for myself. This, among many other factors, led me to apply to colleges in the US and make the decision to pursue my undergraduate studies at Duke.&lt;/p&gt;
+&lt;p&gt;All of this changed on the 12th of August 2014 when, as I unpacked my bags in New York, I watched footage of police clashing with rioters in Ferguson, Missouri, in the aftermath of the shooting of Michael Brown. I had come face to face with the reality of racial tensions in the United States of America. Upon commencing my undergraduate studies later that month, I began to educate myself about the history of racial tensions in the US and to understand the pervasive problem of gun violence that has singed the face of this country for many many years.&lt;/p&gt;
+&lt;p&gt;Five years later, I arrived at Duke on the 1st of August 2019 for a Master’s degree, this time knowing full well about the prevalence of mass shootings in this country. This knowledge, however, did little to prepare me for the news just three days after my arrival of mass shootings in both El Paso, Texas, and Dayton, Ohio. As I have reflected over these shooting over the past two weeks, I have been motivated to explore the recent history of mass shootings in the US as the topic of my first Data Blog. I hope that in the process of making the interactive data visualizations I share on this page, I may learn more about the history of guns in the US and the increasingly prevalent phenomenon of gun violence.&lt;/p&gt;
+&lt;p&gt;In the past two week, I have learnt that a mass shooting is a rather tricky term to define. Different groups have different understandings of what to characterize as a mass shooting and numbers differ between sources; some groups would argue that there have been 254 mass shootings in the US since the start of 2019 while others would enforce a more stringent criteria and suggest that there have been only 7 shootings major enough to be characterized as ‘mass’ shootings. It is this latter, more stringent criteria that I have used for the majority of the interactive plots on this page.&lt;/p&gt;
+&lt;p&gt;The map at the top of this post attempts to summarize much that I have found about the major mass shootings in the US since 2010. Each point on the map represents a major mass shooting and the size of each point indicates the number of people killed in that shooting. If you hover over the point, subsequent details like the number of people killed and injured as well as the type of weapons used in the shooting should appear along with some basic information about the shooting. If you click a point, you will be redirected to a different webpage with detailed information about that shooting.&lt;/p&gt;
+&lt;p&gt;Next I have decided to plot the number of people killed and injured (combined) in major shootings in the US. Over the past few years, mass shootings have been more and more in the news and I suspect this is because of the number of people who have been impacted by (i.e. been victim of) major mass shooting. Certainly, the following plot affirms that people injured or killed in major mass shootings has sky rocketed in recent years, propelling the topic of mass shootings to the forefront of American consciousness.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; It is still just August in 2019 so the data for 2019 is not complete.&lt;/p&gt;
+&lt;center&gt;
+&lt;h1 style=&#34;font-size:15px;&#34;&gt;
+&lt;font color = &#34;maroon&#34;&gt; &lt;em&gt;Hover over the plot to learn more&lt;/em&gt;
+&lt;/h1&gt;
+&lt;/font&gt;
+&lt;/center&gt;
+&lt;p&gt;&lt;div id=&#34;htmlwidget-2&#34; style=&#34;width:100%;height:480px;&#34; class=&#34;widgetframe html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-2&#34;&gt;{&#34;x&#34;:{&#34;url&#34;:&#34;/post/data_blog_1/data-blog-1_files/figure-html//widgets/widget_unnamed-chunk-2.html&#34;,&#34;options&#34;:{&#34;xdomain&#34;:&#34;*&#34;,&#34;allowfullscreen&#34;:false,&#34;lazyload&#34;:false}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;br/&gt;&lt;br/&gt;
+Next, I was interested in the gun debate side of mass shootings. There is now a large number of people in the US who support the ban or limitation of semiautomatic weapons. They believe that this limitation will, if not lower the number of mass shootings, at least limit the victim toll of these shootings. To visualize the difference between the number of victims of shootings involving semi-automatic weapons and other guns, I produced the following box plot. &lt;strong&gt;Note:&lt;/strong&gt; The box plot ignores some major outliers in the semi-automatic weapons category that would have made the difference between the two types even more stark.&lt;/p&gt;
+&lt;center&gt;
+&lt;h1 style=&#34;font-size:15px;&#34;&gt;
+&lt;font color = &#34;maroon&#34;&gt; &lt;em&gt;Hover over the plot to learn more&lt;/em&gt;
+&lt;/h1&gt;
+&lt;/font&gt;
+&lt;/center&gt;
+&lt;p&gt;&lt;div id=&#34;htmlwidget-3&#34; style=&#34;width:100%;height:480px;&#34; class=&#34;widgetframe html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-3&#34;&gt;{&#34;x&#34;:{&#34;url&#34;:&#34;/post/data_blog_1/data-blog-1_files/figure-html//widgets/widget_unnamed-chunk-3.html&#34;,&#34;options&#34;:{&#34;xdomain&#34;:&#34;*&#34;,&#34;allowfullscreen&#34;:false,&#34;lazyload&#34;:false}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;br/&gt;&lt;br/&gt;
+As is clear from this plot, there appears to be a significant difference between the number of victims of each type of mass shooting. It is important here, however, to mention some &lt;strong&gt;limitations of the data plotted above&lt;/strong&gt;: often the date was unclear about whether or not the weapon listed was either semi of fully automatic, despite significant data cleaning on my part. In cases of doubt, the shooting has been characterized as involving ‘Other Weapons’. More accurate data as well as domain knowledge about weapon types is needed for a more comprehensive conclusion about whether or not semi-automatic weapons lead to more victims and therefore should indeed be restricted.&lt;/p&gt;
+&lt;p&gt;Finally, I wanted to take a moment to explore data for all the mass shootings in 2019, not just the major shootings. In pursuit of this goal, I made the following plot to visualize the frequency and human toll of the shootings this year. &lt;strong&gt;Note:&lt;/strong&gt; In an effort to make a smoother and more informative plot, instead of making each point represent the number of shootings and victims on each day, I instead made it represent a 5 day moving average of victims and shootings.&lt;/p&gt;
+&lt;center&gt;
+&lt;h1 style=&#34;font-size:15px;&#34;&gt;
+&lt;font color = &#34;maroon&#34;&gt; &lt;em&gt;Hover over the plot to learn more&lt;/em&gt;
+&lt;/h1&gt;
+&lt;/font&gt;
+&lt;/center&gt;
+&lt;p&gt;&lt;div id=&#34;htmlwidget-4&#34; style=&#34;width:100%;height:480px;&#34; class=&#34;widgetframe html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-4&#34;&gt;{&#34;x&#34;:{&#34;url&#34;:&#34;/post/data_blog_1/data-blog-1_files/figure-html//widgets/widget_unnamed-chunk-4.html&#34;,&#34;options&#34;:{&#34;xdomain&#34;:&#34;*&#34;,&#34;allowfullscreen&#34;:false,&#34;lazyload&#34;:false}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;br/&gt;&lt;br/&gt;
+It seems that as the year has progressed, the number of mass shootings has begun to fluctuate more and more while the number of victims per shooting appears to be on the rise. This plot suggests a trend of increasing destructiveness in the mass shooting activity for this year, leaving me with a sense of anxiety about what is to follow in the rest of this year and beyond. It is genuinely frightening to see the frequency and terrible impact of mass shootings in America and I am now certainly more preoccupied with the gun debate than ever before.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

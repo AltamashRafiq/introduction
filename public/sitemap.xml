@@ -35,7 +35,35 @@
   
   <url>
     <loc>/categories/</loc>
-    <lastmod>2019-07-10T22:17:24+05:00</lastmod>
+    <lastmod>2019-08-08T21:34:36-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/data-blog/</loc>
+    <lastmod>2019-08-08T21:34:36-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/data_blog_1/data-blog-1/</loc>
+    <lastmod>2019-08-08T21:34:36-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2019-08-08T21:34:36-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2019-08-08T21:34:36-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/visualizations/</loc>
+    <lastmod>2019-08-08T21:34:36-04:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -48,11 +76,6 @@
     <loc>/categories/highcharts/</loc>
     <lastmod>2019-07-10T22:17:24+05:00</lastmod>
     <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2019-07-10T22:17:24+05:00</lastmod>
   </url>
   
   <url>
@@ -102,12 +125,6 @@
   
   <url>
     <loc>/tags/source-themes/</loc>
-    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>

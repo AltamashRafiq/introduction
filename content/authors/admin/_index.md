@@ -20,9 +20,9 @@ interests:
 - Interactive Data Visualization
 name: Altamash Rafiq
 organizations:
-- name: Centre for Economic Research in Pakistan
-  url: "https://cerp.org.pk/"
-role: Data Analytics Intern
+- name: Duke University Data Science
+  url: "https://datascience.duke.edu/"
+role: Master's Degree Candidate
 social:
 - icon: envelope
   icon_pack: fas
@@ -39,4 +39,4 @@ user_groups:
 - Visitors
 ---
 
-Altamash Rafiq is an incoming [Interdisciplinary Data Science](https://datascience.duke.edu/) Masters degree candidate at Duke University. Currently, Altamash works as an intern in the Data Analytics department of the Centre for Economic Research in Pakistan (CERP) where he specializes in statistical app and web development in the R programming language. At CERP, he has analyzed and developed interactive visualization tools for government and industry data on public health, education, finance, and more. In addition, Altamash regularly provides statistical consulting and academic course development services to the [Business Analytics](https://www.fuqua.duke.edu/programs/mqm-business-analytics) department of the Duke University Fuqua School of Business.
+Altamash Rafiq is an Interdisciplinary Data Science Master's degree candidate and member of the Social Science Research Institute at Duke University. At Duke, Altamash provides statistical consulting and academic course development services to the [Business Analytics](https://www.fuqua.duke.edu/programs/mqm-business-analytics) department of the Duke University Fuqua School of Business. Previously, Altamash worked as an intern in the Data Analytics department of the [Centre for Economic Research in Pakistan](https://cerp.org.pk/) (CERP) where he specialized in statistical app and web development in the R programming language. At CERP, he analyzed and developed interactive visualization tools for government and industry data on public health, education, finance, and more.
