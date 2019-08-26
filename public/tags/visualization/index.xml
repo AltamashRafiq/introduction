@@ -7,15 +7,24 @@
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019 Altamash Rafiq</copyright>
-    <lastBuildDate>Wed, 27 Apr 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 26 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	    <atom:link href="/tags/visualization/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>US Mass Shootings</title>
+      <link>/project/external-project/data-blog-1-project/</link>
+      <pubDate>Mon, 26 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/project/external-project/data-blog-1-project/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Literacy in Pakistan</title>
       <link>/project/external-project/literacy-project/</link>
-      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 27 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>/project/external-project/literacy-project/</guid>
       <description></description>
@@ -24,7 +33,7 @@
     <item>
       <title>Unvaccinated Children in Pakistan</title>
       <link>/project/external-project/vaccination-project/</link>
-      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 27 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>/project/external-project/vaccination-project/</guid>
       <description></description>
