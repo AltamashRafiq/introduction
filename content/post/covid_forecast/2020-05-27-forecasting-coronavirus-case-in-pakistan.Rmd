@@ -51,6 +51,8 @@ $$y_i = New \; Cases_i \; \; \; t_i = Time_i$$
 
 Here, time is simply the number of days since 1st March 2020. The mean values of the parameters are: $\beta_0 = -13.41$, $\beta_1 = -1.02$, and $\beta_2 = 0.33$. The model parameters were estimated using frequentist maximum likelihood estimation. Below, I plot the mean forecast values for the next 10 days as well as the 80% and 95% prediction intervals of the forecast. 
 
+__Note__: The red line represents the time series of observed new cases per day, and the light blue line passing through the red line time series represents one-day-ahead forecasts of my predictive model. The dark blue line on the top right with the blue shaded region around it represents the mean ten day forecast of my model while the dark and light shaded regions around it represent the 80% and 95% prediction intervals of the forecast respectively.
+
 ```{r}
 ### function to plot forecasting fits ###
 forecast_plot = function(data, fit, subtitle){
@@ -136,6 +138,8 @@ The second forecasting method I attempted to guage the severity of the situation
 $$ \hat{y_t} = \mu + y_{t-1} + \theta_1\epsilon_{t-1}$$
 $$\epsilon_{t-1} = y_{t-1} - \hat{y}_{t-1}$$
 Here the mean values of the parameters are: $\mu = 22.24$, and $\theta_1 = -0.74$. Below, I plot the mean forecast values for the next 10 days as well as the 80% and 95% prediction intervals of the forecast. 
+
+__Note__: The red line represents the time series of observed new cases per day, and the light blue line passing through the red line time series represents one-day-ahead forecasts of my predictive model. The dark blue line on the top right with the blue shaded region around it represents the mean ten day forecast of my model while the dark and light shaded regions around it represent the 80% and 95% prediction intervals of the forecast respectively.
 
 ```{r}
 ### fitting ARIMA model ###
