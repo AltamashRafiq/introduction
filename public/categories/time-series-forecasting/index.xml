@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Time Series Forecasting on Altamash Rafiq</title>
+    <link>/categories/time-series-forecasting/</link>
+    <description>Recent content in Time Series Forecasting on Altamash Rafiq</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2019 Altamash Rafiq</copyright>
+    <lastBuildDate>Wed, 27 May 2020 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="/categories/time-series-forecasting/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Forecasting New Coronavirus Cases in Pakistan</title>
+      <link>/post/covid_forecast/forecasting-coronavirus-cases-in-pakistan/</link>
+      <pubDate>Wed, 27 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/covid_forecast/forecasting-coronavirus-cases-in-pakistan/</guid>
+      <description>
+
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Code for this post can be found &lt;strong&gt;&lt;a href=&#34;https://www.google.com/&#34;&gt;here&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The past three days marked the 2020 Eid celebrations in my home country of Pakistan, the most awaited religious celebration of the year, akin to Christmas in the US. With the nationwide coronovirus lockdown lifted on 9th May and such an important cultural event ensuing from 24th-26th May, millions of Pakistanis took to the streets with little regard to social distancing and personal hygine guidelines. Seeing this unfold, I could not help but worry that a public health crisis may be just around the corner in Pakistan.&lt;/p&gt;
+&lt;p&gt;Despite numerous messages from Pakistani public health officials and international sources such as the World Health Organization, there is still widespread skepticism about COVID-19 in Pakistan. Some believe it doesn’t really exist, some think it is much less severe than it is, and yet others think it exists as only a small part of a grand global conspiracy to microchip the world’s population via vaccines. This, coupled with highly limited COVID-19 testing as well as reports about how patients with other health issues are being deliberately mislabeled as COVID-19 positive to admit them to Pakistani hospitals for treatment, has fueled widespread disregard for protective measures. This ultimately led to an Eid that had only marginally lesser person-to-person interaction than previous Eids. Given that Eid 2020 has likely had many &lt;strong&gt;super spreader events&lt;/strong&gt; due to wide-spread human contact and celebration, I am worried that in the coming weeks, we are likely to see a stark rise in the number of people testing positive per day. This in turn could spell trouble for Pakistan’s healthcare facilities as they would have to manage a deluge of new patients.&lt;/p&gt;
+&lt;p&gt;To get an idea of what kind of numbers we will be seeing in the coming days for new coronavirus cases, I conducted a time series forecasting analysis that I present below. Instead of forecasting just the total coronavirus cases, I chose to forecast new cases as that metric is what we are primarily concerned with when we talk of &lt;strong&gt;flattening the curve&lt;/strong&gt;.&lt;/p&gt;
+&lt;div id=&#34;worst-case-scenario---exponential-increase&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Worst Case Scenario - Exponential Increase&lt;/h4&gt;
+&lt;p&gt;Since I believe the coming days will be a realization of the &lt;strong&gt;worst case scenario&lt;/strong&gt; for COVID-19 spread in pakistan, the first model I created was a polynomial time series regression to do the forecasting for the next 10 days. This modeling choice makes sense in the case of COVID-19 as the disease does demonstrate an exponentially increasing behavior during its early stage in many countries. While the curve of this particular polynomial regression model is quite sharp, it seems suitable when considering the super spreader events on Eid. The form of this model is:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[ \hat{y_i} = \beta_0 + \beta_1 t_i + \beta_2 t_i^2\]&lt;/span&gt;
+&lt;span class=&#34;math display&#34;&gt;\[y_i = New \; Cases_i \; \; \; t_i = Time_i\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Here, time is simply the number of days since 1st March 2020. The mean values of the parameters are: &lt;span class=&#34;math inline&#34;&gt;\(\beta_0 = -13.41\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(\beta_1 = -1.02\)&lt;/span&gt;, and &lt;span class=&#34;math inline&#34;&gt;\(\beta_2 = 0.33\)&lt;/span&gt;. The model parameters were estimated using frequentist maximum likelihood estimation. Below, I plot the mean forecast values for the next 10 days as well as the 80% and 95% prediction intervals of the forecast.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/covid_forecast/2020-05-27-forecasting-coronavirus-case-in-pakistan_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;This forecasting model suggests that the coming days will see a stark rise in the number of new cases per day, potentially even entering the range of 3,000 new cases per day. This may be devastating for the Pakistani healthcare system which could be pushed to its limits in trying to deal with the influx of new patients.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;conservative-forecast&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Conservative Forecast&lt;/h4&gt;
+&lt;p&gt;The second forecasting method I attempted to guage the severity of the situation in the coming days was an Autoregressive Integrated Moving Average (ARIMA) model. The model parameters were estimated and deduced using conditional-sum-of-squares to find starting values followed by fequentist maximum likelihood estimation. This led me to an ARIMA(0,1,1) model which takes the following form:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[ \hat{y_t} = \mu + y_{t-1} + \theta_1\epsilon_{t-1}\]&lt;/span&gt;
+&lt;span class=&#34;math display&#34;&gt;\[\epsilon_{t-1} = y_{t-1} - \hat{y}_{t-1}\]&lt;/span&gt;
+Here the mean values of the parameters are: &lt;span class=&#34;math inline&#34;&gt;\(\mu = 22.24\)&lt;/span&gt;, and &lt;span class=&#34;math inline&#34;&gt;\(\theta_1 = -0.74\)&lt;/span&gt;. Below, I plot the mean forecast values for the next 10 days as well as the 80% and 95% prediction intervals of the forecast.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/covid_forecast/2020-05-27-forecasting-coronavirus-case-in-pakistan_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;While this model’s forecast is more conservative than that of the polynomial regression, it still suggests that the number of new COVID-19 cases per day in Pakistan is expected to rise in the coming days. This model, however, does little to account for the super spreader Eid events. This leads me to believe that the worst-case-scenario forecast is more reasonable than the conservative one.&lt;/p&gt;
+&lt;p&gt;Both forecast scenarios suggest that COVID-19 is spreading faster by the day in Pakistan. While Pakistan currently does not have wide spread testing, a rise in the number of new cases per day among the people to whom tests have been administered is likely to still be indicative of a more general rise in the number of new cases per day in Pakistan. It is important to note here that a more comprehensive forecasting model for this data would include number of tests administered as a predictor variable. This would, however, require forecasting the number of tests administered per day as well as missing value imputation for days where the number of test administered is unavailable. It would also likely lead to an insignificantly different forecast to the one already obtained. As such, I may attempt this in a subsequent post.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

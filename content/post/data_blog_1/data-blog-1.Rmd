@@ -1,10 +1,10 @@
 ---
-title: 'Data Blog 1: Mass Shootings'
+title: 'Analysis of US Mass Shootings'
 author: Altamash Rafiq
 date: '2019-08-08'
 slug: data-blog-1
 categories:
-  - Data Blog
+  - Descriptive Analytics
 tags:
   - Visualizations
 subtitle: ''

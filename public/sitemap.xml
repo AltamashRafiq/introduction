@@ -34,6 +34,28 @@
   </url>
   
   <url>
+    <loc>/categories/</loc>
+    <lastmod>2020-05-27T16:04:52-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/covid_forecast/forecasting-coronavirus-cases-in-pakistan/</loc>
+    <lastmod>2020-05-27T16:04:52-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-05-27T16:04:52-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/time-series-forecasting/</loc>
+    <lastmod>2020-05-27T16:04:52-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/highcharts/</loc>
     <lastmod>2019-08-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -63,25 +85,14 @@
   </url>
   
   <url>
-    <loc>/categories/</loc>
-    <lastmod>2019-08-08T21:34:36-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/data-blog/</loc>
-    <lastmod>2019-08-08T21:34:36-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/post/data_blog_1/data-blog-1/</loc>
     <lastmod>2019-08-08T21:34:36-04:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/</loc>
+    <loc>/categories/descriptive-analytics/</loc>
     <lastmod>2019-08-08T21:34:36-04:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
