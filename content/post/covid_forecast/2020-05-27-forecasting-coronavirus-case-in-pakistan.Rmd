@@ -27,7 +27,7 @@ library(plotly)
 library(gridExtra)
 ```
 
-__Note:__ Code for this post can be found __[here](https://www.google.com/)__
+__Note:__ Code for this post can be found __[here](https://github.com/AltamashRafiq/introduction/blob/master/content/post/covid_forecast/2020-05-27-forecasting-coronavirus-case-in-pakistan.Rmd)__
 
 The past three days marked the 2020 Eid celebrations in my home country of Pakistan, the most awaited religious celebration of the year, akin to Christmas in the US. With the nationwide coronovirus lockdown lifted on 9th May and such an important cultural event ensuing from 24th-26th May, millions of Pakistanis took to the streets with little regard to social distancing and personal hygine guidelines. Seeing this unfold, I could not help but worry that a public health crisis may be just around the corner in Pakistan.
 
